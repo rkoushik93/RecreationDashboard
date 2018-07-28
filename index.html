@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Recreation Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #recreation-table {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            display:none;
+            overflow: auto;
+            height: 450px;
+        }
+
+        #recreation-table td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #recreation-table tr:nth-child(even){background-color: #f2f2f2;}
+
+        #recreation-table tr:hover {background-color: #ddd;}
+
+        #recreation-table th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #4CAF50;
+            color: white;
+        }
+        .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        #col-filter label {
+            margin-right: 8px;
+        }
+        #row-filter label {
+            margin-right: 8px;
+        }
+    </style>
+
+</head>
+<body style="background-color: #e3e2e2">
+<div id="welcomeTitle">
+    <header>
+        <h1 style="text-align: center"><b>Welcome to Recreation Dashboard</b></h1>
+    </header>
+    <p><h3 style="text-align: center">Please choose one of the datasets listed below to continue</h3></p>
+</div>
+<div align="center" id="datasetMenu">
+    <button class="button" style="margin-right: 10px" name="Cricket" value="Cricket.csv" onClick="loadDataset(this)" class="button">
+        <h3><font color="white">Cricket</font></h3>
+    </button>
+    <button class="button" style="margin-right: 10px" name="Hockey" value="EPL.csv" onClick="loadDataset(this)" class="button">
+        <h3><font color="white">EPL</font></h3>
+    </button>
+    <button class="button" style="margin-right: 10px" name="movie" value="Movie.csv" onClick="loadDataset(this)" class="button">
+        <h3><font color="white">Movie</font></h3>
+    </button>
+    <button class="button" style="margin-right: 10px" name="nba" value="NBA.csv" onClick="loadDataset(this)" class="button">
+        <h3><font color="white">NBA</font></h3>
+    </button>
+    <button class="button" style="margin-right: 10px" name="ipl" value="Riding.csv" onClick="loadDataset(this)" class="button">
+        <h3><font color="white">Riding</font></h3>
+    </button>
+</div>
+<br />
+<div id="table-div"></div>
+<div id="column-filter-div" style="display: none">
+    <h4>Column Filter</h4>
+</div>
+<div id="row-filter-div" style="display: none"><h4>Row Filter</h4></div>
+<div id="row-filter-button-div" style="display: none; position: relative; left: 50%;"><button class="button" id="row-filter-button">Filter</button></div>
+<div id="arithmetic-operation-div" style="display: none; position: relative; left: 40%;">
+    <input type="radio" name="arithmeticOperation" value="maximumValue" id="maximum-radio"><label>Maximum</label>
+    <input type="radio" name="arithmeticOperation" value="mimimumValue" id="minimum-radio"><label>Minimum</label>
+    <input type="radio" name="arithmeticOperation" value="meanValue" id="mean-radio"><label>Mean</label>
+    <input type="radio" name="arithmeticOperation" value="sumValue" id="sum-radio"><label>Sum</label>
+    <input type="radio" name="arithmeticOperation" value="standardDeviationValue" id="standard-deviation-radio"><label>Standard Deviation</label>
+</div>
+<div id="select-xaxis-div" style="display: none; position: relative; left: 40%;"></div>
+<div id="select-yaxis-div" style="display: none; position: relative; left: 60%;bottom: 19px;"></div>
+
+<div id="graph-div" style="display: none; position: relative; left: 40%;">
+    <input type="radio" name="plotGraphRadio" id="bar-radio"><label>Bar</label>
+    <input type="radio" name="plotGraphRadio" id="pie-radio"><label>Pie</label>
+    <input type="radio" name="plotGraphRadio" id="doughnut-radio"><label>Doughnut</label>
+    <input type="radio" name="plotGraphRadio" id="line-radio"><label>Line</label>
+    <input type="radio" name="plotGraphRadio" id="stack-radio"><label>Stack</label>
+    <input type="radio" name="plotGraphRadio" id="radar-radio"><label>Radar</label>
+</div>
+<div id="plot-button-div" style="display: none; position: relative; left: 50%;"><button class="button" id="plot-button">Plot Graph</button></div>
+<div id="chart-container">
+    <canvas id="chartCanvas"></canvas>
+</div>
+</body>
+
+<script src="js/dataframe.js"></script>
+<script src="js/Chart.js"></script>
+<script src="js/ChartFactory.js"></script>
+<script src="js/ChartBar.js"></script>
+<script src="js/ChartLine.js"></script>
+<script src="js/ChartPie.js"></script>
+<script src="js/ChartDoughnut.js"></script>
+<script src="js/ChartPolarArea.js"></script>
+<script src="js/ChartRadar.js"></script>
+<script src="js/DatasetMaker.js"></script>
+<script src="js/FilterIterator.js"></script>
+<script src="js/SelectConditionSubject.js"></script>
+<script src="js/DescriptiveStatObserver.js"></script>
+<script src="js/dashboard.js"></script>
+</html>
